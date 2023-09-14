@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class ServicoFormRequest extends FormRequest
+class ServicoFormRequestUpdate extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,7 +21,7 @@ class ServicoFormRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
      */
-    public function rules(): array       
+    public function rules(): array
     {
         return [
           'nome' => 'required|max:80|min:5|unique:servicos,nome',
@@ -50,8 +50,6 @@ class ServicoFormRequest extends FormRequest
             'descricao.min' => 'descricao deve conter no minimo 10 caracteres',
             'duracao.required' => 'duracao obrigatorio',
             'preco.required' => 'preço obrigatorio',
-            'preco.min' => 'deve conter no minimo 2 caracteres',
-            'preco.max' => 'deve conter no maximo 3 caracteres',
             'preco.preco' => 'formato de preço invalido',
             
           
@@ -60,5 +58,3 @@ class ServicoFormRequest extends FormRequest
     }
 }
 
-
-   

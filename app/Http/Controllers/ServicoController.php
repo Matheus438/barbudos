@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ServicoFormRequest;
+use App\Http\Requests\ServicoFormRequestUpdate;
 use App\Models\servico;
 use App\Models\Servico as ModelsServico;
 use Illuminate\Http\Request;
@@ -66,7 +67,7 @@ class ServicoController extends Controller
         ]);
     }
 
-    public function update(Request $request)
+    public function update(ServicoFormRequestUpdate $request)
     {
         $servico = Servico::find($request->id);
 
