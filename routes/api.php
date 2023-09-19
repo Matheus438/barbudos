@@ -21,7 +21,7 @@ Route::post('nome',[ServicoController::class, 'pesquisaPorNome']);
 Route::delete('delete/{id}',[ServicoController::class, 'excluir']);
 Route::put('update', [ServicoController::class, 'update']);
 //serviço
-Route::post('criarServico', [ClienteController::class, 'criarServico']);
+Route::post('criarCliente', [ClienteController::class, 'criarCliente']);
 Route::post('nome',[ClienteController::class, 'pesquisaPorNome']);
 Route::post('celular',[ClienteController::class, 'pesquisaPorCelular']);
 Route::post('cpf',[ClienteController::class, 'pesquisaPorCPF']);
