@@ -18,7 +18,7 @@ Certifique-se de ter os seguintes requisitos atendidos antes de começar a traba
 ```
 2. Acesse o diretório do projeto:
 ```
-cd lojavirtual-api
+cd barbudos-api
 ```
 3. Inicializando o Repositorio 
 ```
