@@ -24,7 +24,7 @@ class ClienteController extends Controller
             'bairro' => $request->bairro,
             'cep' => $request->cep,
             'complemento' => $request->complemento,
-            'senha' => $request->senha
+            'password' => $request->password
         ]);
         return response()->json([
             "success" => true,
@@ -169,8 +169,8 @@ class ClienteController extends Controller
         if(isset($request->complemento)){
             $cliente-> complemento = $request->complemneto;
         }
-        if(isset($request->senha)){
-            $cliente-> senha = $request->senha;
+        if(isset($request->password)){
+            $cliente-> password = $request->password;
         }
 
 

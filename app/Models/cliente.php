@@ -22,6 +22,6 @@ class cliente extends Model
         'bairro',
         'cep',
         'complemento',
-        'senha',
+        'password',
     ];
 }

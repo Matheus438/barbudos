@@ -23,8 +23,8 @@ Route::put('update', [ServicoController::class, 'update']);
 //serviço
 Route::post('criarCliente', [ClienteController::class, 'criarCliente']);
 Route::post('nome',[ClienteController::class, 'pesquisaPorNome']);
-Route::post('celular',[ClienteController::class, 'pesquisaPorCelular']);
-Route::post('cpf',[ClienteController::class, 'pesquisaPorCPF']);
-Route::post('email',[ClienteController::class, 'pesquisaPorEmail']);
+Route::post('celular',[ClienteController::class, 'pesquisaCelular']);
+Route::post('cpf',[ClienteController::class, 'pesquisaCPF']);
+Route::post('email',[ClienteController::class, 'pesquisaEmail']);
 Route::delete('delete/{id}',[ClienteController::class, 'excluir']);
 Route::put('update', [ClienteController::class, 'update']);
