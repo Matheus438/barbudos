@@ -14,7 +14,7 @@ Certifique-se de ter os seguintes requisitos atendidos antes de começar a traba
 
 1. Clone este repositório para o seu ambiente de desenvolvimento local utilizando o comando:
 ```
- git clone https://github.com/Matheus438/lojavirtual-api.git
+ git clone https://github.com/Matheus438/barbudos.git
 ```
 2. Acesse o diretório do projeto:
 ```
