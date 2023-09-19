@@ -50,6 +50,22 @@ class ServicoController extends Controller
             'message' => 'Não há resultado para pesquisa.'
         ]);
     }
+    public function pesquisaPorDescricao(Request $request)
+    {
+        $servico = Servico::where('descricao', 'like', '%' . $request->descricao . '%')->get();
+
+        if (count($servico) > 0) {
+
+            return response()->json([
+                'status' => true,
+                'data' => $servico
+            ]);
+        }
+        return response()->json([
+            'status' => false,
+            'message' => 'Não há resultado para pesquisa.'
+        ]);
+    }
     public function excluir($id)
     {
         $servico = Servico::find($id);
