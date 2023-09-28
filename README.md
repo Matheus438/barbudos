@@ -24,15 +24,15 @@ cd barbudos-api
 ```
 composer update
 ```
-3. Inicializando o migrate 
+4. Inicializando o migrate 
 ```
 php artisan migrate 
 ```
-4. Copiando o env. do exemplo
+5. Copiando o env. do exemplo
 ```
 copy .env.example .env
 ```
-5. Acessar o Visual Studio Code
+6. Acessar o Visual Studio Code
 ```
 code.
 ```
