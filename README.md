@@ -24,6 +24,10 @@ cd barbudos-api
 ```
 composer update
 ```
+3. Inicializando o migrate 
+```
+php artisan migrate 
+```
 4. Copiando o env. do exemplo
 ```
 copy .env.example .env
