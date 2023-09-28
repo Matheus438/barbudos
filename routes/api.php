@@ -18,13 +18,13 @@ use Illuminate\Support\Facades\Route;
 //serviço
 Route::post('criarServico', [ServicoController::class, 'criarServico']);
 Route::post('nome',[ServicoController::class, 'pesquisaPorNome']);
-Route::delete('delete/{id}',[ServicoController::class, 'excluir']);
-Route::put('update', [ServicoController::class, 'update']);
-//serviço
+Route::delete('deletar/{id}',[ServicoController::class, 'excluir']);
+Route::put('atualizacao', [ServicoController::class, 'update']);
+//cliente
 Route::post('criarCliente', [ClienteController::class, 'criarCliente']);
 Route::post('nome',[ClienteController::class, 'pesquisaPorNome']);
 Route::post('celular',[ClienteController::class, 'pesquisaCelular']);
 Route::post('cpf',[ClienteController::class, 'pesquisaCPF']);
 Route::post('email',[ClienteController::class, 'pesquisaEmail']);
-Route::delete('delete/{id}',[ClienteController::class, 'excluir']);
+Route::delete('delete/{id}',[ClienteController::class, 'exclui']);
 Route::put('update', [ClienteController::class, 'update']);
