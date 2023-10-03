@@ -7,7 +7,9 @@ use App\Models\Profissional;
 use Illuminate\Http\Request;
 
 class ProfissionalController extends Controller
+
 {
+   
     public function criarProfissional(ProfissionalFormRequest $request)
     {
         $profissional = profissional::create([
@@ -39,7 +41,9 @@ class ProfissionalController extends Controller
                 'data' => $profissional
             ]);
         }
+
     }
+    
     public function pesquisaPorNome(Request $request)
     {
         $profissional = profissional::where('nome', 'like', '%' . $request->nome . '%')->get();

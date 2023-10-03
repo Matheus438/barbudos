@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 //serviço
 Route::post('criarServico', [ServicoController::class, 'criarServico']);
-Route::post('nome',[ServicoController::class, 'pesquisaPorNome']);
+Route::post('nomeserviço',[ServicoController::class, 'pesquisaPorNome']);
 Route::delete('deletar/{id}',[ServicoController::class, 'excluir']);
 Route::put('atualizacao', [ServicoController::class, 'update']);
 //cliente

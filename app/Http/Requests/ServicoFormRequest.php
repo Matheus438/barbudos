@@ -24,7 +24,7 @@ class ServicoFormRequest extends FormRequest
     public function rules(): array       
     {
         return [
-          'nome' => 'required|max:80|min:5|unique:servicos,nome' . $this->id,
+          'nome' => 'required|max:80|min:5|unique:servicos,nome',
           'descricao' => 'required|max:200|min:10',
           'duracao' => 'required|integer',
           'preco'=> 'required|decimal:2,4 ',
@@ -54,9 +54,6 @@ class ServicoFormRequest extends FormRequest
             'preco.max' => 'deve conter no maximo 3 caracteres',
             'preco.preco' => 'formato de preço invalido',
             'preco.decimal' => 'este campo aceita apenas numeros decimais'
-            
-          
-
         ];
     }
 }

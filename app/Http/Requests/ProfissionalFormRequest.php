@@ -22,28 +22,26 @@ class ProfissionalFormRequest extends FormRequest
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(): array
-    { {
-            return [
-                'nome' => 'required|max:120|min:5',
-                'celular' => 'required|max:11|min:10',
-                'email' => 'required|max:120|unique:profissionals,email,' . $this->id,
-                'cpf' => 'required|max:11|min:11|unique:profissionals,cpf,' . $this->id,
-                'nascimento' => 'required|date',
-                'cidade' => 'required|max:120',
-                'estado' => 'required|max:2|min:2',
-                'pais' => 'required|max:80',
-                'rua' => 'required|max:120',
-                'numero' => 'required|max:10',
-                'bairro' => 'required|max:100',
-                'cep' => 'required|max:8|min:8',
-                'complemento' => 'max:150',
-                'password' => 'required',
-                'salario' => 'required|decimal:2,4'
-            ];
-        }
-    }
-    public function failedValidator(Validator $validator)
     {
+        return [
+            'nome' => 'required|max:120|min:5',
+            'celular' => 'required|max:11|min:10',
+            'email' => 'required|max:120|unique:profissionals,email',
+            'cpf' => 'required|max:11|min:11|unique:profissionals,cpf',
+            'nascimento' =>'required|date',
+            'cidade' => 'required|max:120',
+            'estado' => 'required|max:2',
+            'rua' => 'required|max:120',
+            'numero' => 'required|max:10',
+            'bairro' => 'required|max:100',
+            'cep' => 'required|max:8|min:8',
+            'complemento' => 'max:150',
+            'password' => 'required',
+            'salario' => 'required|decimal:2,4',
+       
+        ];
+    }
+    public function failedValidation(Validator $validator){
         throw new HttpResponseException(response()->json([
             'success' => false,
             'error' => $validator->errors()
@@ -54,7 +52,7 @@ class ProfissionalFormRequest extends FormRequest
         return [
 
             'nome.required' => 'O campo nome é obrigatorio',
-            'nome.max' => 'o campo nome deve conter no maximo 120 caracteres',
+            'nome.max' => 'o campo nome deve conter no maximo 80 caracteres',
             'nome.min' => 'o campo nome deve conter no minimo 5 caracteres',
             'celular.required' => 'O campo celular é obrigatorio',
             'celular.max' => 'o campo celular deve conter no maximo 11 caracteres',
@@ -67,7 +65,6 @@ class ProfissionalFormRequest extends FormRequest
             'cpf.max' => 'o campo cpf deve conter no maximo 11 caracteres',
             'cpf.min' => 'o campo cpf deve conter no minimo 11 caracteres',
             'nascimento.required' => 'O campo nascimento é obrigatorio',
-            'nascimento.date' => 'O campo nascimento deve ser uma data válida',
             'cidade.required' => 'o campo cidade é obrigatorio',
             'cidade.max' => 'deve conter no maximo 120 caracteres',
             'estado.required' => 'o campo estado é obrigatorio',
@@ -82,10 +79,11 @@ class ProfissionalFormRequest extends FormRequest
             'cep.max' => 'deve conter no maximo 8 caracteres',
             'cep.min' => 'o campo cpf deve conter no minimo 8 caracteres',
             'complemento.max' => 'deve conter no maximo 150 caracteres',
-            'password.required' => 'o campo password é obrigatorio',
-            'pais.required' => 'o campo pais é obrigatorio',
-            'pais.max' => 'o campo pais deve conter no maximo 80 caracteres'
-
+            'password.required' => 'o campo senha é obrigatorio',
+            'pais.required' => 'o campo país é obrigatório',
+            'pais.required' => 'o campo país deve conter no maximo 80 caracteres',
+            'salario.required' => 'o campo salario é obrigatório',
+            'salario.decimal' => 'Este campo so aceita numero decimal'
 
         ];
     }
