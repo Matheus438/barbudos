@@ -32,13 +32,6 @@ class ClienteController extends Controller
             "message" => "Cliente cadastrado",
             "data" => $cliente
         ], 200);
-        if (count($cliente) > 0) {
-            return response()->json([
-                'status' => false,
-                "message" => "O nome do cliente comtem mais de 200 caracteres, e não pode ser cadastrado",
-                'data' => $cliente
-            ]);
-        }
     }
     public function pesquisaPorNome(Request $request)
     {
@@ -100,7 +93,7 @@ class ClienteController extends Controller
                 'status' => true,
                 'message' => 'senha redefinida.'
             ]);
-        }else 
+        }
 
         return response()->json([
             'status' => true,

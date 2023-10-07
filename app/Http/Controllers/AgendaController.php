@@ -32,4 +32,23 @@ class AgendaController extends Controller
             ]);
         }
     }
+    
+    public function pesquisarAgendaNome(Request $request)
+    {
+        $agenda= Agenda::where('cliente', 'like', '%' . $request->cliente . '%')->get();
+
+        if (count($agenda)>0) {
+            return response()->json([
+                'status' => true,
+                'data' => $agenda
+
+            ]);
+        }
+        return response()->json([
+            'status' => false,
+            "message" => "nada foi emcontrado com o nome procurado",
+            'data' => $agenda
+        ]);
+    }
 }
+
