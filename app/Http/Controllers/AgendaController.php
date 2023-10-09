@@ -24,13 +24,7 @@ class AgendaController extends Controller
             "message" => "cliente cadastrado",
             "data" => $agenda
         ], 200);
-        if (count($agenda) > 0) {
-            return response()->json([
-                'status' => false,
-                "message" => "o agendamento foi concluido",
-                'data' => $agenda
-            ]);
-        }
+       
     }
     
     public function pesquisarAgendaNome(Request $request)
@@ -48,6 +42,20 @@ class AgendaController extends Controller
             'status' => false,
             "message" => "nada foi emcontrado com o nome procurado",
             'data' => $agenda
+        ]);
+    }
+    public function mostrarTodos(){
+        $agenda = Agenda::all();
+        
+        if (count($agenda)==0){
+            return response()->json([
+                'status'=> false,
+                'message'=> "nenhum dado encontrado,"
+            ]);
+        }
+        return response()->json([
+            'status'=> true,
+            'data'=> $agenda
         ]);
     }
 }

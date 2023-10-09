@@ -29,7 +29,6 @@ class AgendaFormRequest extends FormRequest
             'pagamento' => 'required|max:20|min:3',
             'valor' => 'required|decimal:2,4'
         ];
-
-    
+     
     }
 }
