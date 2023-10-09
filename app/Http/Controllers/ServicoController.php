@@ -115,4 +115,18 @@ class ServicoController extends Controller
         ]);
         
     }
+    public function retornarTodos(){
+        $servico = Servico::all();
+
+        if(count($servico)==0){
+            return response()->json([
+                'status'=> false,
+                'message'=> "serviço nao encontrado"
+            ]);
+        }
+        return response()->json([
+            'status'=> true,
+            'data' => $servico
+        ]);
+       }
 }

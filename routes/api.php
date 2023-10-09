@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProfissionalController;
 use App\Http\Controllers\ServicoController;
+use App\Http\Requests\ProfissionalFormRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,7 @@ Route::post('criarServico', [ServicoController::class, 'criarServico']);
 Route::post('nomeserviço',[ServicoController::class, 'pesquisaPorNome']);
 Route::delete('deletar/{id}',[ServicoController::class, 'excluir']);
 Route::put('atualizacao', [ServicoController::class, 'update']);
+Route::get('retornarTodos', [ServicoController::class, 'retornarTodos']);
 //cliente
 Route::post('criarCliente', [ClienteController::class, 'criarCliente']);
 Route::post('nome',[ClienteController::class, 'pesquisaPorNome']);
@@ -30,6 +32,7 @@ Route::post('email',[ClienteController::class, 'pesquisaEmail']);
 Route::delete('delete/{id}',[ClienteController::class, 'exclui']);
 Route::put('update', [ClienteController::class, 'update']);
 Route::put('esqueciSenha',[ClienteController::class, 'esqueciSenha']);
+Route::get('retornarTudo', [ClienteController::class, 'retornarTudo']);
     
 
 //profissionais
@@ -40,3 +43,4 @@ Route::post('cpfProfissional',[ProfissionalController::class, 'pesquisaCPF']);
 Route::post('emailProfissional',[ProfissionalController::class, 'pesquisaEmail']);
 Route::delete('deleteProfissional/{id}',[ProfissionalController::class, 'exclui']);
 Route::put('updateProfissional', [ProfissionalController::class, 'update']);
+Route::get('retornar', [ProfissionalFormRequest::class, 'retornar']);
