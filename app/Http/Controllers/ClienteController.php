@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ClienteFormRequest;
+use App\Http\Requests\ClienteFormRequestUpdate;
 use App\Models\cliente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -134,7 +135,7 @@ class ClienteController extends Controller
             'message' => "Cliente excluído com sucesso"
         ]);
     }
-    public function update( ClienteFormRequest $request)
+    public function update(ClienteFormRequestUpdate $request)
     {
         $cliente = Cliente::find($request->id);
 
