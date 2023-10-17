@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProfissionalController;
 use App\Http\Controllers\ServicoController;
@@ -43,4 +44,11 @@ Route::post('cpfProfissional',[ProfissionalController::class, 'pesquisaCPF']);
 Route::post('emailProfissional',[ProfissionalController::class, 'pesquisaEmail']);
 Route::delete('deleteProfissional/{id}',[ProfissionalController::class, 'exclui']);
 Route::put('updateProfissional', [ProfissionalController::class, 'update']);
-Route::get('retornar', [ProfissionalFormRequest::class, 'retornar']);
+Route::get('retornar', [ProfissionalFormRequest::class, 'retornarAll']);
+
+//agenda
+Route::post('criarAgenda', [AgendaController::class, 'criarAgenda']);
+Route::post('pesquisarAgendaNome',[AgendaController::class, 'pesquisarAgendaNome']);
+Route::get('mostrarTodos', [AgendaController::class, 'mostrarTodos']);
+Route::delete('delete/{id}',[AgendaController::class, 'excluiAgenda']);
+Route::put('updateAgenda', [ClienteController::class, 'updateAgenda']);

@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class AgendaFormRequest extends FormRequest
+class AgendaUpdateFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -31,7 +31,6 @@ class AgendaFormRequest extends FormRequest
             'pagamento' => 'required|max:20|min:3',
             'valor' => 'required|decimal:2,4'
         ];
-     
     }
     public function failedValidation(Validator $validator){
         throw new HttpResponseException(response()->json([
@@ -39,7 +38,6 @@ class AgendaFormRequest extends FormRequest
             'error' => $validator->errors()
         ]));
     }
-
     public function messages()
     {
         return[
@@ -54,5 +52,6 @@ class AgendaFormRequest extends FormRequest
         'valor.required' => 'Campo valor é obrigatório',
         'valor.decimal' => 'Este campo so aceita numero decimal'
         ];
+
 }
 }

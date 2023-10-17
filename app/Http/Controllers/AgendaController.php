@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AgendaFormRequest;
+use App\Http\Requests\AgendaFormRequestUpdate;
+use App\Http\Requests\AgendaUpdateFormRequest;
 use App\Models\Agenda;
 use Illuminate\Http\Request;
 
@@ -11,10 +13,10 @@ class AgendaController extends Controller
     public function criarAgenda(AgendaFormRequest $request)
     {
         $agenda = Agenda::create([
-            'cliente' => $request->cliente,
-            'profissional' => $request->profissional,
-            'dataehora' => $request->dataehora,
-            'servico' => $request->servico,
+            'clienteId' => $request->clienteId,
+            'profissionalId' => $request->profissionalId,
+            'dataHora' => $request->dataHora,
+            'servicoId' => $request->servicoId,
             'pagamento' => $request->pagamento,
             'valor' => $request->valor
         ]);
@@ -29,7 +31,7 @@ class AgendaController extends Controller
     
     public function pesquisarAgendaNome(Request $request)
     {
-        $agenda= Agenda::where('cliente', 'like', '%' . $request->cliente . '%')->get();
+        $agenda= Agenda::where('clienteId', 'like', '%' . $request->clienteId . '%')->get();
 
         if (count($agenda)>0) {
             return response()->json([
@@ -58,5 +60,74 @@ class AgendaController extends Controller
             'data'=> $agenda
         ]);
     }
+    public function excluiAgenda($id)
+    {
+        
+        $agenda = Agenda::find($id);
+        if (!isset($agenda)) {
+            return response()->json([
+                'status' => false,
+                'message' => " não encontrado"
+            ]);
+        }
+
+        $agenda->delete();
+        return response()->json([
+            'status' => true,
+            'message' => " excluído com sucesso"
+        ]);
+    }
+    public function updateAgenda(AgendaUpdateFormRequest $request)
+    {
+        $agenda = Agenda::find($request->id);
+
+        if (!isset($agenda)) {
+            return response()->json([
+                'status' => false,
+                'message' => "Cliente não encontrado"
+            ]);
+        }
+       
+        if(isset($request->clienteId)){
+        $agenda-> clienteId = $request->clienteId;
+        }
+        if(isset($request->profissionalId)){
+        $agenda-> profissionalId = $request->profissionalId;
+        }
+        if(isset($request->dataHora)){
+        $agenda-> dataHora = $request->dataHora;
+        }
+        if(isset($request->servicoId)){
+        $agenda-> servicoId = $request->servicoId;
+        }
+        if(isset($request->pagamento)){
+            $agenda-> pagamento = $request->pagamento;
+        }
+        if(isset($request->valor)){
+            $agenda-> valor = $request->valor;
+        }
+
+        $agenda->update();
+
+        return response()->json([
+            'status' => true,
+            'message' => " atualizado."
+        ]);
+       
+    }
+    public function retornarTudo(){
+        $agenda = Agenda::all();
+
+        if(count($agenda)==0){
+            return response()->json([
+                'status'=> false,
+                'message'=> " nao encontrado"
+            ]);
+        }
+        return response()->json([
+            'status'=> true,
+            'data' => $agenda
+        ]);
+       }
 }
 
