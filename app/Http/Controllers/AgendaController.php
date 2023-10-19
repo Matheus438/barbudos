@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AgendaFormRequest;
-use App\Http\Requests\AgendaFormRequestUpdate;
 use App\Http\Requests\AgendaUpdateFormRequest;
 use App\Models\Agenda;
 use Illuminate\Http\Request;

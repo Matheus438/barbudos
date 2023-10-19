@@ -24,9 +24,9 @@ class AgendaFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'profissionalId' => 'required|',
-            'clienteId' => '|integer',
-            'servicoId'  => '|integer',
+            'profissional_Id' => 'required|',
+            'cliente_Id' => '|integer',
+            'servico_Id'  => '|integer',
             'dataHora' => 'required|date',
             'pagamento' => 'required|max:20|min:3',
             'valor' => 'required|decimal:2,4'
@@ -43,9 +43,9 @@ class AgendaFormRequest extends FormRequest
     public function messages()
     {
         return[
-        'profissionalId.required' => 'Campo profissional é obrigatório',
-        'clienteId.required' => 'Campo cliente é obrigatório',
-        'servicoId.required' => 'Campo serviço é obrigatório',
+        'profissional_Id.required' => 'Campo profissional é obrigatório',
+        'cliente_Id.required' => 'Campo cliente é obrigatório',
+        'servico_Id.required' => 'Campo serviço é obrigatório',
         'dataHora.required' => 'Campo data é obrigatório',
         'dataHora.date' => 'Formato Inválido',
         'pagamento.required' => 'Campo pagamento é obrigatório',
