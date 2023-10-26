@@ -12,17 +12,17 @@ class AgendaController extends Controller
     public function criarAgenda(AgendaFormRequest $request)
     {
         $agenda = Agenda::create([
-            'clienteId' => $request->clienteId,
-            'profissionalId' => $request->profissionalId,
+            'cliente_Id' => $request->cliente_Id,
+            'profissional_Id' => $request->profissional_Id,
             'dataHora' => $request->dataHora,
-            'servicoId' => $request->servicoId,
+            'servico_Id' => $request->servico_Id,
             'pagamento' => $request->pagamento,
             'valor' => $request->valor
         ]);
 
         return response()->json([
             "success" => true,
-            "message" => "cliente cadastrado",
+            "message" => "agenda cadastrado",
             "data" => $agenda
         ], 200);
        
@@ -83,7 +83,7 @@ class AgendaController extends Controller
         if (!isset($agenda)) {
             return response()->json([
                 'status' => false,
-                'message' => "Cliente não encontrado"
+                'message' => "agenda não encontrado"
             ]);
         }
        
