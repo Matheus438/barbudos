@@ -192,13 +192,13 @@ class ProfissionalController extends Controller
         ]);
        
     }
-    public function retornar(){
-        $profissional = Profissional::all();
+    public function retornartodosProfissionais(){
+        $profissional = profissional::all();
 
         if(count($profissional)==0){
             return response()->json([
                 'status'=> false,
-                'message'=> "serviço nao encontrado"
+                'message'=> "profissionai nao encontrado"
             ]);
         }
         return response()->json([
