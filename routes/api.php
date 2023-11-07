@@ -36,7 +36,7 @@ Route::put('update', [ClienteController::class, 'update']);
 Route::put('esqueciSenha',[ClienteController::class, 'esqueciSenha']);
 Route::get('retornarTudo', [ClienteController::class, 'retornarTudo']);
 Route::get('pesquisaId/{id}', [ClienteController::class, 'pesquisaId']);
-pesquisaPorId
+
 //profissionais
 Route::post('criarProfissional', [ProfissionalController::class, 'criarProfissional']);
 Route::post('Profissional',[ProfissionalController::class, 'pesquisaPorNome']);
