@@ -36,7 +36,7 @@ class ClienteController extends Controller
     }
     public function pesquisaPorNome(Request $request)
     {
-        $cliente = cliente::where('nome', 'like', '%' . $request->nome . '%')->get();
+        $cliente = Cliente::where('nome', 'like', '%' . $request->nome . '%')->get();
 
         if (count($cliente) > 0) {
 
@@ -52,7 +52,7 @@ class ClienteController extends Controller
     }
     public function pesquisaCelular(Request $request)
     {
-        $cliente = cliente::where('celular', 'like', '%' . $request->celular . '%')->get();
+        $cliente = Cliente::where('celular', 'like', '%' . $request->celular . '%')->get();
 
         if (count($cliente) > 0) {
 
@@ -68,7 +68,7 @@ class ClienteController extends Controller
     }
     public function pesquisaCPF(Request $request)
     {
-        $cliente = cliente::where('cpf', 'like', '%' . $request->cpf . '%')->get();
+        $cliente = Cliente::where('cpf', 'like', '%' . $request->cpf . '%')->get();
 
         if (count($cliente) > 0) {
 
@@ -85,7 +85,7 @@ class ClienteController extends Controller
 
     public function esqueciSenha(Request $request)
     {
-        $cliente = cliente::where('cpf', $request->cpf)->first();
+        $cliente = Cliente::where('cpf', $request->cpf)->first();
 
         if (isset($cliente)) {
             $cliente->password = Hash::make($cliente->cpf);
@@ -104,7 +104,7 @@ class ClienteController extends Controller
 
     public function pesquisaEmail(Request $request)
     {
-        $cliente = cliente::where('email', 'like', '%' . $request->email . '%')->get();
+        $cliente = Cliente::where('email', 'like', '%' . $request->email . '%')->get();
 
         if (count($cliente) > 0) {
 
@@ -118,10 +118,26 @@ class ClienteController extends Controller
             'message' => 'Não há resultado para pesquisa.'
         ]);
     }
+    public function pesquisaId($id)
+    {
+        $cliente = Cliente::find($id);
+        
+        if ($cliente == null) {
+            return response()->json([
+                'status' => false,
+                'message' => "cliente não encontrada"
+            ]);
+        }
+        return response()->json([
+            'status' => true,
+            'data' => $cliente
+        ]);
+        
+    }
     public function exclui($id)
     {
         
-        $cliente = cliente::find($id);
+        $cliente = Cliente::find($id);
         if (!isset($cliente)) {
             return response()->json([
                 'status' => false,

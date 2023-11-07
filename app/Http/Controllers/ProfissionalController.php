@@ -77,6 +77,22 @@ class ProfissionalController extends Controller
             'message' => 'Não há resultado para pesquisa.'
         ]);
     }
+    public function pesquisaPorId($id)
+    {
+        $profissional = Profissional::find($id);
+        
+        if ($profissional == null) {
+            return response()->json([
+                'status' => false,
+                'message' => "profissional não encontrada"
+            ]);
+        }
+        return response()->json([
+            'status' => true,
+            'data' => $profissional
+        ]);
+        
+    }
     public function pesquisaCPF(Request $request)
     {
         $profissional = profissional::where('cpf', 'like', '%' . $request->cpf . '%')->get();

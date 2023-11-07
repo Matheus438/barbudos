@@ -59,6 +59,23 @@ class AgendaController extends Controller
             'data'=> $agenda
         ]);
     }
+    
+    public function pesquisarPorId($id)
+    {
+        $usuario = Usuario::find($id);
+
+        if ($usuario == null) {
+            return response()->json([
+                'status' => false,
+                'message' => "Usuario não encontrada"
+            ]);
+        }
+        return response()->json([
+            'status' => false,
+            'message' => 'Não há resultado para pesquisa.'
+        ]);
+    }
+
     public function excluiAgenda($id)
     {
         
