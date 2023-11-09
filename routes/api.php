@@ -46,6 +46,7 @@ Route::post('emailProfissional',[ProfissionalController::class, 'pesquisaEmail']
 Route::delete('deleteProfissional/{id}',[ProfissionalController::class, 'exclui']);
 Route::put('updateProfissional', [ProfissionalController::class, 'update']);
 Route::get('retornartodosProfissionais', [ProfissionalController::class, 'retornartodosProfissionais']);
+Route::get('pesquisaPorId/{id}', [ProfissionalController::class, 'pesquisaPorId']);
 
 //agenda
 Route::post('criarAgenda', [AgendaController::class, 'criarAgenda']);
