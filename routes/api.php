@@ -24,13 +24,13 @@ Route::post('nomeserviço',[ServicoController::class, 'pesquisaPorNome']);
 Route::delete('deletar/{id}',[ServicoController::class, 'excluir']);
 Route::put('atualizacao', [ServicoController::class, 'update']);
 Route::get('retornarTodos', [ServicoController::class, 'retornarTodos']);
-Route::get('pesquisaPorId/{id}', [ClienteController::class, 'pesquisaPorId']);
+Route::get('pesquisarId/{id}', [ServicoController::class, 'pesquisarId']);
 //cliente
 Route::post('criarCliente', [ClienteController::class, 'criarCliente']);
-Route::post('nome',[ClienteController::class, 'pesquisaPorNome']);
-Route::post('celular',[ClienteController::class, 'pesquisaCelular']);
-Route::post('cpf',[ClienteController::class, 'pesquisaCPF']);
-Route::post('email',[ClienteController::class, 'pesquisaEmail']);
+Route::get('nome',[ClienteController::class, 'pesquisaPorNome']);
+Route::get('celular',[ClienteController::class, 'pesquisaCelular']);
+Route::get('cpf',[ClienteController::class, 'pesquisaCPF']);
+Route::get('email',[ClienteController::class, 'pesquisaEmail']);
 Route::delete('delete/{id}',[ClienteController::class, 'exclui']);
 Route::put('update', [ClienteController::class, 'update']);
 Route::put('esqueciSenha',[ClienteController::class, 'esqueciSenha']);
@@ -39,10 +39,10 @@ Route::get('pesquisaId/{id}', [ClienteController::class, 'pesquisaId']);
 
 //profissionais
 Route::post('criarProfissional', [ProfissionalController::class, 'criarProfissional']);
-Route::post('Profissional',[ProfissionalController::class, 'pesquisaPorNome']);
-Route::post('celularProfissional',[ProfissionalController::class, 'pesquisaCelular']);
-Route::post('cpfProfissional',[ProfissionalController::class, 'pesquisaCPF']);
-Route::post('emailProfissional',[ProfissionalController::class, 'pesquisaEmail']);
+Route::get('Profissional',[ProfissionalController::class, 'pesquisaPorNome']);
+Route::get('celularProfissional',[ProfissionalController::class, 'pesquisaCelular']);
+Route::get('cpfProfissional',[ProfissionalController::class, 'pesquisaCPF']);
+Route::get('emailProfissional',[ProfissionalController::class, 'pesquisaEmail']);
 Route::delete('deleteProfissional/{id}',[ProfissionalController::class, 'exclui']);
 Route::put('updateProfissional', [ProfissionalController::class, 'update']);
 Route::get('retornartodosProfissionais', [ProfissionalController::class, 'retornartodosProfissionais']);

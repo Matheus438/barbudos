@@ -67,14 +67,14 @@ class ServicoController extends Controller
         ]);
     }
 
-    public function pesquisarPorId($id)
+    public function pesquisarId($id)
     {
-        $usuario = Usuario::find($id);
+        $servico = Servico::find($id);
 
-        if ($usuario == null) {
+        if ($servico == null) {
             return response()->json([
                 'status' => false,
-                'message' => "Usuario não encontrada"
+                'message' => "Servico não encontrada"
             ]);
         }
         return response()->json([
