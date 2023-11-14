@@ -20,11 +20,11 @@ use Illuminate\Support\Facades\Route;
 */
 //serviço
 Route::post('criarServico', [ServicoController::class, 'criarServico']);
-Route::post('nomeserviço',[ServicoController::class, 'pesquisaPorNome']);
-Route::delete('deletar/{id}',[ServicoController::class, 'excluir']);
-Route::put('atualizacao', [ServicoController::class, 'update']);
-Route::get('retornarTodos', [ServicoController::class, 'retornarTodos']);
-Route::get('pesquisarId/{id}', [ServicoController::class, 'pesquisarId']);
+Route::post('PesquisaNomeServiço',[ServicoController::class, 'pesquisaPorNome']);
+Route::delete('deletarServico/{id}',[ServicoController::class, 'excluir']);
+Route::put('atualizacaoServico', [ServicoController::class, 'update']);
+Route::get('retornarTodosServico', [ServicoController::class, 'retornarTodos']);
+Route::get('pesquisarIdServico/{id}', [ServicoController::class, 'pesquisarId']);
 //cliente
 Route::post('criarCliente', [ClienteController::class, 'criarCliente']);
 Route::get('nome',[ClienteController::class, 'pesquisaPorNome']);
@@ -39,7 +39,7 @@ Route::get('pesquisaId/{id}', [ClienteController::class, 'pesquisaId']);
 
 //profissionais
 Route::post('criarProfissional', [ProfissionalController::class, 'criarProfissional']);
-Route::get('Profissional',[ProfissionalController::class, 'pesquisaPorNome']);
+Route::post('ProfissionalNome',[ProfissionalController::class, 'pesquisaPorNome']);
 Route::get('celularProfissional',[ProfissionalController::class, 'pesquisaCelular']);
 Route::get('cpfProfissional',[ProfissionalController::class, 'pesquisaCPF']);
 Route::get('emailProfissional',[ProfissionalController::class, 'pesquisaEmail']);
