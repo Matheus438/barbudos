@@ -67,7 +67,7 @@ class ServicoController extends Controller
         ]);
     }
 
-    public function pesquisarId($id)
+    public function pesquisarIdServico($id)
     {
         $servico = Servico::find($id);
 
@@ -78,8 +78,8 @@ class ServicoController extends Controller
             ]);
         }
         return response()->json([
-            'status' => false,
-            'message' => 'Não há resultado para pesquisa.'
+            'status' => true,
+            'message' => $servico
         ]);
     }
     

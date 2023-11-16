@@ -19,38 +19,38 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //serviço
-Route::post('criarServico', [ServicoController::class, 'criarServico']);
-Route::post('PesquisaNomeServiço',[ServicoController::class, 'pesquisaPorNome']);
-Route::delete('deletarServico/{id}',[ServicoController::class, 'excluir']);
-Route::put('atualizacaoServico', [ServicoController::class, 'update']);
-Route::get('retornarTodosServico', [ServicoController::class, 'retornarTodos']);
-Route::get('pesquisarIdServico/{id}', [ServicoController::class, 'pesquisarId']);
+Route::post('servico/criar', [ServicoController::class, 'criarServico']);
+Route::post('servico/pesquisarNome',[ServicoController::class, 'pesquisaPorNome']);
+Route::delete('servico/deletar/{id}',[ServicoController::class, 'excluir']);
+Route::put('servico/atualizar', [ServicoController::class, 'update']);
+Route::get('servico/retornarTodos', [ServicoController::class, 'retornarTodos']);
+Route::get('servico/pesquisarID/{id}', [ServicoController::class, 'pesquisarIdServico']);
 //cliente
-Route::post('criarCliente', [ClienteController::class, 'criarCliente']);
-Route::get('nome',[ClienteController::class, 'pesquisaPorNome']);
-Route::get('celular',[ClienteController::class, 'pesquisaCelular']);
-Route::get('cpf',[ClienteController::class, 'pesquisaCPF']);
-Route::get('email',[ClienteController::class, 'pesquisaEmail']);
-Route::delete('delete/{id}',[ClienteController::class, 'exclui']);
-Route::put('update', [ClienteController::class, 'update']);
-Route::put('esqueciSenha',[ClienteController::class, 'esqueciSenha']);
-Route::get('retornarTudo', [ClienteController::class, 'retornarTudo']);
-Route::get('pesquisaId/{id}', [ClienteController::class, 'pesquisaId']);
+Route::post('cliente/criar', [ClienteController::class, 'criarCliente']);
+Route::post('cliente/pesquisarPorNome',[ClienteController::class, 'pesquisaPorNome']);
+Route::get('cliente/pesquisarCelular',[ClienteController::class, 'pesquisaCelular']);
+Route::get('cliente/pesquisarPorCPF',[ClienteController::class, 'pesquisaCPF']);
+Route::get('cliente/pesquisaPorEmail',[ClienteController::class, 'pesquisaEmail']);
+Route::delete('cliente/delete/{id}',[ClienteController::class, 'exclui']);
+Route::put('cliente/update', [ClienteController::class, 'update']);
+Route::put('cliente/esqueciSenha',[ClienteController::class, 'esqueciSenha']);
+Route::get('cliente/retornarTudo', [ClienteController::class, 'retornarTudo']);
+Route::get('cliente/pesquisaId/{id}', [ClienteController::class, 'pesquisaId']);
 
 //profissionais
-Route::post('criarProfissional', [ProfissionalController::class, 'criarProfissional']);
-Route::post('ProfissionalNome',[ProfissionalController::class, 'pesquisaPorNome']);
-Route::get('celularProfissional',[ProfissionalController::class, 'pesquisaCelular']);
-Route::get('cpfProfissional',[ProfissionalController::class, 'pesquisaCPF']);
-Route::get('emailProfissional',[ProfissionalController::class, 'pesquisaEmail']);
-Route::delete('deleteProfissional/{id}',[ProfissionalController::class, 'exclui']);
-Route::put('updateProfissional', [ProfissionalController::class, 'update']);
-Route::get('retornartodosProfissionais', [ProfissionalController::class, 'retornartodosProfissionais']);
-Route::get('pesquisaPorId/{id}', [ProfissionalController::class, 'pesquisaPorId']);
+Route::post('profissional/criar', [ProfissionalController::class, 'criarProfissional']);
+Route::post('profissional/pesquisarNome',[ProfissionalController::class, 'pesquisaPorNome']);
+Route::get('profissional/pesquisaCelular',[ProfissionalController::class, 'pesquisaCelular']);
+Route::get('profissional/pesquisarCPF',[ProfissionalController::class, 'pesquisaCPF']);
+Route::get('profissional/pesquisarEmail',[ProfissionalController::class, 'pesquisaEmail']);
+Route::delete('profissional/deletar/{id}',[ProfissionalController::class, 'exclui']);
+Route::put('profissional/atualizar', [ProfissionalController::class, 'update']);
+Route::get('profissional/retornarTodos', [ProfissionalController::class, 'retornartodosProfissionais']);
+Route::get('profissional/pesquisaId/{id}', [ProfissionalController::class, 'pesquisaPorId']);
 
 //agenda
 Route::post('criarAgenda', [AgendaController::class, 'criarAgenda']);
 Route::post('pesquisarAgendaNome',[AgendaController::class, 'pesquisarAgendaNome']);
 Route::get('mostrarTodos', [AgendaController::class, 'mostrarTodos']);
 Route::delete('delete/{id}',[AgendaController::class, 'excluiAgenda']);
-Route::put('updateAgenda', [ClienteController::class, 'updateAgenda']);
+Route::put('updateAgenda', [AgendaController::class, 'updateAgenda']);
