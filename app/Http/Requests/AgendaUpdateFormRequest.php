@@ -27,7 +27,7 @@ class AgendaUpdateFormRequest extends FormRequest
             'profissional_id' => 'integer',
             'cliente_id' => 'integer',
             'servico_id' => 'integer',
-            'dataHora' => '|date',
+            'dataHora' => '|dateTime',
             'pagamento' => '|max:20|min:3',
             'valor' => '|decimal: 2,4',
         ];
