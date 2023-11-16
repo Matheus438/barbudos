@@ -49,8 +49,8 @@ Route::get('profissional/retornarTodos', [ProfissionalController::class, 'retorn
 Route::get('profissional/pesquisaId/{id}', [ProfissionalController::class, 'pesquisaPorId']);
 
 //agenda
-Route::post('criarAgenda', [AgendaController::class, 'criarAgenda']);
-Route::post('pesquisarAgendaNome',[AgendaController::class, 'pesquisarAgendaNome']);
-Route::get('mostrarTodos', [AgendaController::class, 'mostrarTodos']);
-Route::delete('delete/{id}',[AgendaController::class, 'excluiAgenda']);
-Route::put('updateAgenda', [AgendaController::class, 'updateAgenda']);
+Route::post('agenda/criar', [AgendaController::class, 'criarAgenda']);
+Route::post('agenda/pesquisaDataHora',[AgendaController::class, 'pesquisaPorDataHora']);
+Route::get('agenda/retornaTodos', [AgendaController::class, 'retornarTudo']);
+Route::delete('agenda/delete/{id}',[AgendaController::class, 'excluiAgenda']);
+Route::put('agenda/update', [AgendaController::class, 'updateAgenda']);

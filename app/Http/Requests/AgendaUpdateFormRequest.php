@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class AgendaUpdateFormRequestUpdate extends FormRequest
+class AgendaUpdateFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -19,17 +19,17 @@ class AgendaUpdateFormRequestUpdate extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|string>
      */
     public function rules(): array
     {
         return [
-            'profissional_Id' => 'required|',
-            'cliente_Id' => '|integer',
-            'servico_Id'  => '|integer',
-            'dataHora' => 'required|date',
-            'pagamento' => 'required|max:20|min:3',
-            'valor' => 'required|decimal:2,4'
+            'profissional_id' => 'integer',
+            'cliente_id' => 'integer',
+            'servico_id' => 'integer',
+            'dataHora' => '|date',
+            'pagamento' => '|max:20|min:3',
+            'valor' => '|decimal: 2,4',
         ];
     }
     public function failedValidation(Validator $validator){

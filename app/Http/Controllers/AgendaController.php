@@ -29,9 +29,9 @@ class AgendaController extends Controller
        
     }
     
-    public function pesquisarAgendaNome(Request $request)
+    public function pesquisaPorDataHora(Request $request)
     {
-        $agenda= Agenda::where('clienteId', 'like', '%' . $request->clienteId . '%')->get();
+        $agenda= Agenda::where('dataHora', 'like', '%' . $request->dataHora . '%')->get();
 
         if (count($agenda)>0) {
             return response()->json([
@@ -44,20 +44,6 @@ class AgendaController extends Controller
             'status' => false,
             "message" => "nada foi emcontrado com o nome procurado",
             'data' => $agenda
-        ]);
-    }
-    public function mostrarTodos(){
-        $agenda = Agenda::all();
-        
-        if (count($agenda)==0){
-            return response()->json([
-                'status'=> false,
-                'message'=> "nenhum dado encontrado,"
-            ]);
-        }
-        return response()->json([
-            'status'=> true,
-            'data'=> $agenda
         ]);
     }
     
@@ -94,7 +80,7 @@ class AgendaController extends Controller
             'message' => " excluído com sucesso"
         ]);
     }
-    public function updateAgenda(AgendaUpdateFormRequestUpdate $request)
+    public function updateAgenda(AgendaUpdateFormRequest $request)
     {
         $agenda = Agenda::find($request->id);
 

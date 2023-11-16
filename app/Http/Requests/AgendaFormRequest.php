@@ -24,9 +24,9 @@ class AgendaFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'profissional_Id' => 'required|',
-            'cliente_Id' => '|integer',
-            'servico_Id'  => '|integer',
+            'profissional_Id' => 'required|integer',
+            'cliente_Id' => 'integer',
+            'servico_Id'  => 'integer',
             'dataHora' => 'required|date',
             'pagamento' => 'required|max:20|min:3',
             'valor' => 'required|decimal:2,4'
