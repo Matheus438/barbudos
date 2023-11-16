@@ -1,3 +1,4 @@
+*lembra de fazer o front da agenda/ o excluir e a pagina de redefinir senha
 ## Barbearia Barbudos
 ## Requisitos
 
