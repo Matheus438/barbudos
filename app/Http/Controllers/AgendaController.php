@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AgendaFormRequest;
 use App\Http\Requests\AgendaUpdateFormRequest;
+use App\Http\Requests\AgendaUpdateFormRequestUpdate;
 use App\Models\Agenda;
 use Illuminate\Http\Request;
 
@@ -38,7 +39,7 @@ class AgendaController extends Controller
                 'data' => $agenda
 
             ]);
-        }
+        }   
         return response()->json([
             'status' => false,
             "message" => "nada foi emcontrado com o nome procurado",
@@ -62,9 +63,9 @@ class AgendaController extends Controller
     
     public function pesquisarPorId($id)
     {
-        $usuario = Usuario::find($id);
+        $agenda = Agenda::find($id);
 
-        if ($usuario == null) {
+        if ($agenda == null) {
             return response()->json([
                 'status' => false,
                 'message' => "Usuario não encontrada"
@@ -93,7 +94,7 @@ class AgendaController extends Controller
             'message' => " excluído com sucesso"
         ]);
     }
-    public function updateAgenda(AgendaUpdateFormRequest $request)
+    public function updateAgenda(AgendaUpdateFormRequestUpdate $request)
     {
         $agenda = Agenda::find($request->id);
 
