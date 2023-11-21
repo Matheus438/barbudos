@@ -24,7 +24,7 @@ Route::post('servico/pesquisarNome',[ServicoController::class, 'pesquisaPorNome'
 Route::delete('servico/deletar/{id}',[ServicoController::class, 'excluir']);
 Route::put('servico/atualizar', [ServicoController::class, 'update']);
 Route::get('servico/retornarTodos', [ServicoController::class, 'retornarTodos']);
-Route::get('servico/pesquisarID/{id}', [ServicoController::class, 'pesquisarIdServico']);
+Route::post('servico/pesquisarID/{id}', [ServicoController::class, 'pesquisarIdServico']);
 //cliente
 Route::post('cliente/criar', [ClienteController::class, 'criarCliente']);
 Route::post('cliente/pesquisarPorNome',[ClienteController::class, 'pesquisaPorNome']);
@@ -33,7 +33,7 @@ Route::get('cliente/pesquisarPorCPF',[ClienteController::class, 'pesquisaCPF']);
 Route::get('cliente/pesquisaPorEmail',[ClienteController::class, 'pesquisaEmail']);
 Route::delete('cliente/delete/{id}',[ClienteController::class, 'exclui']);
 Route::put('cliente/update', [ClienteController::class, 'update']);
-Route::put('cliente/esqueciSenha',[ClienteController::class, 'esqueciSenha']);
+Route::put('cliente/esqueciSenha/{id}',[ClienteController::class, 'esqueciSenha']);
 Route::get('cliente/retornarTudo', [ClienteController::class, 'retornarTudo']);
 Route::get('cliente/pesquisaId/{id}', [ClienteController::class, 'pesquisaId']);
 

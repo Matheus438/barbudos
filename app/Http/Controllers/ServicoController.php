@@ -7,6 +7,7 @@ use App\Http\Requests\ServicoFormRequestUpdate;
 use App\Models\servico;
 use App\Models\Servico as ModelsServico;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ServicoController extends Controller
 {
@@ -64,6 +65,24 @@ class ServicoController extends Controller
         return response()->json([
             'status' => false,
             'message' => 'Não há resultado para pesquisa.'
+        ]);
+    }
+    public function esqueciSenha(Request $request)
+    {
+        $servico = servico::where('id', $request->id)->first();
+
+        if (isset($servico)) {
+            $servico->password = Hash::make($servico->cpf);
+            $servico->update();
+            return response()->json([
+                'status' => true,
+                'message' => 'senha redefinida.'
+            ]);
+        }
+
+        return response()->json([
+            'status' => true,
+            'message' => 'não foi possivel alterar a senha'
         ]);
     }
 
