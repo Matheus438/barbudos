@@ -6,6 +6,7 @@ use App\Http\Requests\ProfissionalFormRequest;
 use App\Http\Requests\ProfissionalFormRequestUpdate;
 use App\Models\Profissional;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ProfissionalController extends Controller
 
@@ -78,6 +79,7 @@ class ProfissionalController extends Controller
             'message' => 'Não há resultado para pesquisa.'
         ]);
     }
+    
     public function pesquisaPorId($id)
     {
         $profissional = Profissional::find($id);
@@ -223,4 +225,17 @@ class ProfissionalController extends Controller
             'data' => $profissional
         ]);
        }
+       public function esqueciSenha(Request $request)
+       {
+           $profissional = Profissional::where('id', $request->id)->first();
+   
+           if (isset($profissional)) {
+               $profissional->password = Hash::make($profissional->cpf);
+               $profissional->update();
+               return response()->json([
+                   'status' => true,
+                   'message' => 'senha redefinida.'
+               ]);
+           }
+}
 }
