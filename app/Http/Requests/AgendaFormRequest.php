@@ -27,7 +27,7 @@ class AgendaFormRequest extends FormRequest
             'profissional_Id' => 'required|integer',
             'cliente_Id' => 'integer',
             'servico_Id'  => 'integer',
-            'dataHora' => 'required|date',
+            'dataHora' => 'required|date|unique:agendas,dataHora',
             'pagamento' => 'required|max:20|min:3',
             'valor' => 'required|decimal:2,4'
         ];
@@ -48,6 +48,7 @@ class AgendaFormRequest extends FormRequest
         'servico_Id.required' => 'Campo serviço é obrigatório',
         'dataHora.required' => 'Campo data é obrigatório',
         'dataHora.date' => 'Formato Inválido',
+        'dataHora.unique' => 'esse horario já foi reservado',
         'pagamento.required' => 'Campo pagamento é obrigatório',
         'pagamento.max' => 'Campo pagamento deve conter no maximo 20 caracteres',
         'pagamento.min' => 'Campo pagamento deve conter no minimo 3 caracteres',
