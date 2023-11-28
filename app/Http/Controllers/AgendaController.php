@@ -42,7 +42,7 @@ class AgendaController extends Controller
         }   
         return response()->json([
             'status' => false,
-            "message" => "nada foi emcontrado com o nome procurado",
+            "message" => "nada foi encontrado com o nome procurado",
             'data' => $agenda
         ]);
     }

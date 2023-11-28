@@ -67,24 +67,7 @@ class ServicoController extends Controller
             'message' => 'Não há resultado para pesquisa.'
         ]);
     }
-    public function esqueciSenha(Request $request)
-    {
-        $servico = servico::where('id', $request->id)->first();
 
-        if (isset($servico)) {
-            $servico->password = Hash::make($servico->cpf);
-            $servico->update();
-            return response()->json([
-                'status' => true,
-                'message' => 'senha redefinida.'
-            ]);
-        }
-
-        return response()->json([
-            'status' => true,
-            'message' => 'não foi possivel alterar a senha'
-        ]);
-    }
 
     public function pesquisarIdServico($id)
     {
