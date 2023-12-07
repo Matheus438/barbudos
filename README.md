@@ -1,15 +1,42 @@
-*lembra de fazer o front da agenda/ o excluir e a pagina de redefinir senha
-## Barbearia Barbudos
-## Requisitos
+# Projeto Barbudos
 
-Certifique-se de ter os seguintes requisitos atendidos antes de começar a trabalhar nos exercícios:
+## Descrição
+O Barbudos Barbearia é um sistema de gerenciamento para barbearias, projetado para facilitar a administração de clientes, profissionais e proporcionar funcionalidades úteis, como exclusão de senha, busca por CEP e troca de senha.
 
-- PHP instalado
-- Composer instalado
-- Laravel Framework instalado
+## Funcionalidades
+
+### 1. Cadastro de Cliente
+   - **Descrição:** Permite o cadastro fácil e rápido de novos clientes.
+   - **Instruções:** Preencha os campos obrigatórios, como nome, contato e endereço.
+
+### 2. Cadastro de Profissionais
+   - **Descrição:** Facilita a inclusão de informações sobre os profissionais da barbearia.
+   - **Instruções:** Insira os dados relevantes, como nome, especialidade e informações de contato.
+
+### 3. Exclusão de Senha
+   - **Descrição:** Permite a exclusão segura de senhas de clientes ou profissionais.
+   - **Instruções:** Selecione a opção "Excluir Senha", forneça as informações necessárias e confirme.
+
+### 4. Busca por CEP
+   - **Descrição:** Integração com serviços de consulta de CEP para agilizar o preenchimento de endereços.
+Instruções: Insira o CEP desejado e aproveite o preenchimento automático dos dados de endereço.
+
+### 5. Troca de Senha
+Descrição: Possibilita a alteração segura de senhas para clientes ou profissionais.
+Instruções: Acesse a opção "Trocar Senha", forneça as informações necessárias e confirme a mudança.
+Requisitos Técnicos
+Linguagem: PHP, TypeScript
+Framework: Flask
+Banco de Dados: MariaDB
+API de Busca de CEP: ViaCEP
+
+
+## Certifique-se de ter os seguintes requisitos atendidos antes de começar a trabalhar nos exercícios:
+
 - 7-Zip instalado
 - Git instalado
 - Editor de código de sua preferência
+- npm instalado
 
 ## Como utilizar este repositório
 
@@ -21,13 +48,13 @@ Certifique-se de ter os seguintes requisitos atendidos antes de começar a traba
 ```
 cd barbudos
 ```
-3. Inicializando o Repositorio 
+3. Inicializando o Repositorio
 ```
 composer update
 ```
-4. Inicializando o migrate 
+4. Inicializando o migrate
 ```
-php artisan migrate 
+php artisan migrate
 ```
 5. Copiando o env. do exemplo
 ```
@@ -45,8 +72,13 @@ Este projeto está licenciado sob a [MIT License](LICENSE), o que significa que 
 
 ## Contato
 
-Em caso de dúvidas, sugestões ou problemas, sinta-se à vontade para entrar em contato através do email: matheusbispoa3@gmail.com.
+Em caso de dúvidas, sugestões ou problemas, sinta-se à vontade para entrar em contato através do email: gp0987gp@gmail.com.
 
-**Aviso**: Certifique-se de substituir "seu_usuario" no link de clonagem e "seu_email@example.com" na seção de contato pelos valores correspondentes do seu próprio usuário do GitHub e endereço de e-mail.
+Licença
+Este projeto é distribuído sob a licença [MIT]. Veja o arquivo LICENSE para mais detalhes.
 
+## Tecnologias Utilizadas
+- **Frontend:** HTML, CSS, PHP, TYPESCRIPT
+- **Backend:** Node.js, Express
+- **Banco de Dados:** MongoDB
 
