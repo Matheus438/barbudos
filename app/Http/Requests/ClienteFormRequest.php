@@ -26,7 +26,7 @@ class ClienteFormRequest extends FormRequest
         return [
             'nome' => 'required|max:120|min:5',
             'celular' => 'required|max:11|min:10',
-            'email' => 'required|max:120|unique:clientes,email',
+            'email' => 'required|email|max:120|unique:clientes,email',
             'cpf' => 'required|max:11|min:11|unique:clientes,cpf',
             'nascimento' =>'required|date',
             'cidade' => 'required|max:120',
@@ -56,6 +56,7 @@ class ClienteFormRequest extends FormRequest
             'celular.required' => 'O campo celular é obrigatorio',
             'celular.max' => 'o campo celular deve conter no maximo 11 caracteres',
             'celular.min' => 'o campo celular deve conter no minimo 10 caracteres',
+            'email.email' => 'email invalido',
             'email.unique' => 'o email ja foi cadastrado',
             'email.required' => 'este campo é obrigatorio',
             'email.max' => 'o campo email deve conter no maximo 120 caracteres',
