@@ -29,21 +29,29 @@ class AgendaController extends Controller
        
     }
     
-    public function pesquisaPorDataHora(Request $request)
+    public function pesquisarPorDataDoProfissional(Request $request)
     {
-        $agenda= Agenda::where('dataHora', 'like', '%' . $request->dataHora . '%')->get();
 
-        if (count($agenda)>0) {
+        if ($request->profissional_id == 0 || $request->profissional_id == '') {
+            $agenda = Agenda::all();
+        } else {
+            $agenda = Agenda::where('profissional_Id', $request->profissional_id);
+
+            if (isset($request->dataHora)) {
+                $agenda->whereDate('dataHora', '>=', $request->dataHora);
+            }
+            $agenda = $agenda->get();
+        }
+
+        if (count($agenda) > 0) {
             return response()->json([
                 'status' => true,
                 'data' => $agenda
-
             ]);
-        }   
+        }
         return response()->json([
             'status' => false,
-            "message" => "nada foi encontrado com o nome procurado",
-            'data' => $agenda
+            'message' => 'Não há resultados para a pesquisa'
         ]);
     }
     

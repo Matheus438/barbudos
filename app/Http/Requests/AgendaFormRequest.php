@@ -24,7 +24,7 @@ class AgendaFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'profissional_Id' => 'required|integer',
+            'profissional_Id' => 'required|integer|exists:profissionals,id',
             'cliente_Id' => 'integer',
             'servico_Id'  => 'integer',
             'dataHora' => 'required|date|unique:agendas,dataHora',
@@ -44,6 +44,7 @@ class AgendaFormRequest extends FormRequest
     {
         return[
         'profissional_Id.required' => 'Campo profissional é obrigatório',
+        'profissional_Id.exists' => 'profissional não existe',
         'dataHora.required' => 'Campo data é obrigatório',
         'dataHora.date' => 'Formato Inválido',
         'dataHora.unique' => 'esse horario já foi reservado',

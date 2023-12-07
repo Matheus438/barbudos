@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('pagamento', 20)->nullable(true);
             $table->integer('valor')->nullable(true);
             $table->timestamps();
+            $table->foreign('profissional_id')->references('id')->on('profissionals');
         });
     }
 
